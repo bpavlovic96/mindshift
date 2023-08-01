@@ -1,0 +1,19 @@
+.dataOverlay,
+.dataName,
+.dataLink {
+  background-color: transparent;
+}
+
+.dataOverlay {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-transform: uppercase;
+  gap: 1rem;
+}
+
+.dataName,
+.dataLink {
+  margin: 0;
+  padding: 5px;
+}
