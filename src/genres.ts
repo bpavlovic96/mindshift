@@ -4,8 +4,11 @@ export const genreList = [
     tracks: [
       {
         name: "Fall of The Republic",
-        track: "https://www.youtube.com/watch?v=biv_fPMjtFg",
-        key: 1,
+        track: "biv_fPMjtFg",
+      },
+      {
+        name: "The Betrayed",
+        track: "3b6XlO_TW8U",
       },
     ],
     background: "./public/space.mp4",

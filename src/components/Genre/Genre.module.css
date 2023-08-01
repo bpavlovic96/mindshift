@@ -1,11 +1,13 @@
 .genreData {
   color: #fff;
   position: relative;
+  display: flex;
+  gap: 1rem;
 }
 
 .video {
-  width: 100%;
   animation: backAndForth 15.25s linear infinite;
+  width: calc(70% - 1rem);
 }
 
 @keyframes backAndForth {
@@ -24,12 +26,11 @@
 }
 
 .genreWrapper {
-  position: absolute;
-  top: 45%;
-  left: 70%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border: 1px #545454 solid;
+  padding: 1rem;
 }
 
 .genreName {

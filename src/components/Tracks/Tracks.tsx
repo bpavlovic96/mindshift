@@ -1,17 +1,33 @@
+import { VideoItem } from "../Genre/Genre";
 import styles from "./Tracks.module.css";
 
-interface GenreProps {
+export type Track = {
   name: string;
-  link: string;
-  key: React.Key;
-  tracks: [name: string, track: string, key: number];
-}
+  track: string;
+};
 
-function Tracks({ name, link, key }: GenreProps) {
+type TracksProps = {
+  link: string;
+  videoItems?: VideoItem[];
+};
+
+function Tracks({ link, videoItems }: TracksProps) {
   return (
-    <div className={styles.dataOverlay} key={key}>
-      <h2 className={styles.dataName}>{name}</h2>
-      <p className={styles.dataLink}>{link}</p>
+    <div className={styles.dataOverlay}>
+      {videoItems?.map((item) => {
+        if (item.id === link)
+          return (
+            <div className={styles.dataWrapper} key={item.id}>
+              <h2 className={styles.dataName}>
+                {item.snippet.localized.title}
+              </h2>
+              <img
+                className={styles.dataLink}
+                src={item.snippet.thumbnails.medium.url}
+              />
+            </div>
+          );
+      })}
     </div>
   );
 }
