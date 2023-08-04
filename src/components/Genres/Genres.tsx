@@ -2,6 +2,7 @@ import Genre, { VideoItem } from "../Genre/Genre";
 import { genreList } from "../../genres";
 import styles from "./Genres.module.css";
 import { useEffect, useState } from "react";
+import { videoIdList } from "../../functions/generateVideoIdList";
 
 function Genres() {
   const channelKey = import.meta.env.VITE_CHANNEL_ID;
@@ -9,11 +10,9 @@ function Genres() {
   const [videoItems, setVideoItems] = useState<{ items: VideoItem[] }>();
 
   useEffect(() => {
-    const videoIdList = genreList.map((genre) =>
-      genre.tracks.map((track) => track.track)
-    );
+    const videoIdListMap = videoIdList(genreList);
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdList}&key=${channelKey}`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdListMap}&key=${channelKey}`
     )
       .then((res) => res.json())
       .then((data) => setVideoItems(data));
@@ -28,6 +27,7 @@ function Genres() {
           video={genre.background}
           tracks={genre.tracks}
           videoItems={videoItems}
+          enabled={true}
         />
       ))}
     </div>

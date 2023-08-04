@@ -1,11 +1,6 @@
 import { VideoItem } from "../Genre/Genre";
 import styles from "./Tracks.module.css";
 
-export type Track = {
-  name: string;
-  track: string;
-};
-
 type TracksProps = {
   link: string;
   videoItems?: VideoItem[];

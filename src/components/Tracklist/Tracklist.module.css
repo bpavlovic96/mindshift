@@ -1,0 +1,21 @@
+.trackList {
+  overflow-y: auto;
+  border-top: 1px #444444 solid;
+  border-left: 1px #444444 solid;
+  border-right: 1px #444444 solid;
+  margin-right: 1rem;
+}
+
+.trackList::-webkit-scrollbar,
+.trackList::-webkit-scrollbar-track,
+.trackList::-webkit-scrollbar-thumb {
+  width: 5px;
+}
+.trackList::-webkit-scrollbar,
+.trackList::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+.trackList::-webkit-scrollbar-thumb {
+  background-color: #545454;
+}

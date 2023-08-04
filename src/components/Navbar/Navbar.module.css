@@ -1,8 +1,5 @@
 .navbar,
-.logo,
-.navList,
-.navListHome,
-.navListAbout {
+.logo {
   background-color: transparent;
   text-transform: uppercase;
 }
@@ -11,28 +8,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
+  z-index: 1;
+  width: 100%;
+  min-height: 10vh;
 }
 
 .logo {
-  width: 7rem;
-  padding: 1rem;
-  filter: invert(100%);
-  opacity: 40%;
-  margin-left: 30rem;
-}
-
-.navList {
   position: absolute;
-  left: 70%;
-  list-style: none;
-  display: flex;
-  gap: 5rem;
-  justify-content: flex-end;
-  font-size: 1.5rem;
+  top: 10%;
+  left: calc(50% - 12.5rem);
+  padding: 1rem;
+  width: 25rem;
+  filter: invert(100%);
+  animation: opacityAnim 2s ease-in;
 }
 
-.navList * {
-  text-decoration: none;
-  color: #9b9b9b;
+@keyframes opacityAnim {
+  0% {
+    opacity: 0%;
+    box-shadow: 0 0 50px 20px white;
+  }
+  80% {
+    opacity: 30%;
+    box-shadow: 0 0 50px 20px white;
+  }
+  100% {
+    opacity: 70%;
+    box-shadow: 0 0 0 0 white;
+  }
+}
+
+.logo:hover {
+  opacity: 100%;
 }

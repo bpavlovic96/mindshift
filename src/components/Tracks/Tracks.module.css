@@ -6,16 +6,18 @@
 }
 
 .dataWrapper {
-  border: 1px #444444 solid;
   padding: 1rem;
+  border-bottom: 1px #444444 solid;
 }
 
 .dataOverlay {
-  display: flex;
-  flex-direction: column;
   color: #fff;
   text-transform: uppercase;
   gap: 2rem;
+}
+
+.dataName {
+  font-size: 1vw;
 }
 
 .dataName,
@@ -25,8 +27,7 @@
 }
 
 .dataLink {
-  position: relative;
+  width: 40%;
   opacity: 0.5;
   border-radius: 2%;
-  border: 2px solid transparent;
 }

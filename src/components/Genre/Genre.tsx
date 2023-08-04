@@ -1,5 +1,5 @@
 import styles from "./Genre.module.css";
-import Tracks, { Track } from "../Tracks/Tracks";
+import Tracklist from "../Tracklist/Tracklist";
 
 export type VideoItem = {
   id: string;
@@ -15,23 +15,25 @@ export type VideoItem = {
   };
 };
 
-type GenreProps = {
+export type Track = {
+  track: string;
+};
+
+export type GenreProps = {
   video: string;
   name: string;
   tracks: Track[];
   videoItems?: { items: VideoItem[] };
+  enabled?: boolean;
 };
 
-function Genre({ name, video, tracks, videoItems }: GenreProps) {
-  console.log(videoItems);
+function Genre({ name, video, tracks, videoItems, enabled }: GenreProps) {
   return (
     <div className={styles.genreData}>
       <video className={styles.video} src={video} autoPlay muted loop />
       <div className={styles.genreWrapper}>
         <h2 className={styles.genreName}>{name}</h2>
-        {tracks.map((track) => (
-          <Tracks link={track.track} videoItems={videoItems?.items} />
-        ))}
+        <Tracklist tracks={tracks} videoItems={videoItems} enabled={enabled} />
       </div>
     </div>
   );

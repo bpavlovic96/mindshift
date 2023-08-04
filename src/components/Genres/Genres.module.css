@@ -1,7 +1,5 @@
 .genres {
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
+  grid-template-rows: 1fr;
+  border-top: 1px #444444 solid;
 }

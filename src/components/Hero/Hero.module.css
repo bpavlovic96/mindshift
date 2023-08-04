@@ -1,0 +1,89 @@
+.mainWrapper {
+  margin-top: 25rem;
+}
+
+.headerTextWrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  gap: 8.5rem;
+}
+
+.headerTextHead {
+  text-orientation: upright;
+  writing-mode: vertical-lr;
+  color: #fff;
+  animation: flyInLeft 2s ease;
+}
+
+@keyframes flyInLeft {
+  0% {
+    opacity: 0%;
+    transform: translateX(-500px);
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 20%;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes flyInRight {
+  0% {
+    opacity: 0%;
+    transform: translateX(500px);
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 20%;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.headerTextParagraph {
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.63;
+  position: relative;
+  animation: flyInRight 2s ease;
+}
+
+.line {
+  position: absolute;
+  width: 6rem;
+  top: 50%;
+  right: 11rem;
+  animation: lineShow 3s ease;
+  opacity: 30%;
+  border: 1px solid #ffffff;
+}
+
+@keyframes lineShow {
+  0% {
+    opacity: 0%;
+    border: 1px solid #000;
+    filter: blur(5px);
+  }
+  60% {
+    opacity: 15%;
+  }
+  100% {
+    opacity: 30%;
+    border: 1px solid #ffffff;
+    filter: blur(0);
+  }
+}
+
+.TextParagraphAndLineWrapper {
+  position: relative;
+}

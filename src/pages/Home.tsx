@@ -1,9 +1,11 @@
-import Genres from "../components/Genres/Genres";
+import Hero from "../components/Hero/Hero";
+import Navigation from "../components/Navigation/Navigation";
 
 function Home() {
   return (
     <>
-      <Genres />
+      <Hero />
+      <Navigation />
     </>
   );
 }
