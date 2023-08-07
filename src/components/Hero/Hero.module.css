@@ -1,5 +1,9 @@
 .mainWrapper {
-  margin-top: 25rem;
+  margin-top: 28vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .headerTextWrapper {
@@ -7,13 +11,16 @@
   justify-content: center;
   font-size: 0.8rem;
   gap: 8.5rem;
+  margin-top: 1rem;
 }
 
 .headerTextHead {
-  text-orientation: upright;
-  writing-mode: vertical-lr;
   color: #fff;
-  animation: flyInLeft 2s ease;
+  animation: flyInLeft 1.5s ease;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes flyInLeft {
@@ -55,7 +62,7 @@
   font-size: 1.2rem;
   line-height: 1.63;
   position: relative;
-  animation: flyInRight 2s ease;
+  animation: flyInRight 1.5s ease;
 }
 
 .line {
@@ -63,9 +70,10 @@
   width: 6rem;
   top: 50%;
   right: 11rem;
-  animation: lineShow 3s ease;
+  animation: lineShow 1.5s ease;
   opacity: 30%;
   border: 1px solid #ffffff;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
 
 @keyframes lineShow {
@@ -86,4 +94,81 @@
 
 .TextParagraphAndLineWrapper {
   position: relative;
+}
+
+.expandButton {
+  width: 20rem;
+  height: 3rem;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.expandButton:hover {
+  background-color: rgba(101, 0, 0, 0.2);
+}
+
+.headerTextWrapper {
+  justify-content: space-between;
+}
+
+.headerTextWrapperExpand {
+  animation: expand 1.5s ease-in-out;
+}
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mainWrapperExpand {
+  margin-top: 0;
+}
+
+.headerTextHeadExpand {
+  font-size: 2.5rem;
+  line-height: 2;
+}
+
+.headerTextParagraphWrapper {
+  transition: opacity 0.5s ease;
+}
+
+.headerTextParagraphWrapperExpand {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.headerTextParagraphExpand {
+  font-size: 1.8rem;
+  line-height: 2.78;
+  word-break: keep-all;
+}
+
+.lineExpand {
+  opacity: 0;
+  filter: blur(5px);
+}
+
+.expandButton:active .headerTextParagraph {
+  opacity: 0;
+}
+
+@keyframes out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

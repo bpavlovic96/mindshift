@@ -20,7 +20,8 @@
   padding: 1rem;
   width: 25rem;
   filter: invert(100%);
-  animation: opacityAnim 2s ease-in;
+  animation: opacityAnim 1.5s ease-in;
+  opacity: 80%;
 }
 
 @keyframes opacityAnim {
@@ -33,11 +34,51 @@
     box-shadow: 0 0 50px 20px white;
   }
   100% {
-    opacity: 70%;
+    opacity: 80%;
     box-shadow: 0 0 0 0 white;
+  }
+}
+
+@keyframes logoMove {
+  0% {
+    top: 10%;
+    left: calc(50% - 12.5rem);
+    opacity: 0;
+    width: 25rem;
+  }
+
+  10% {
+  }
+
+  50% {
+    top: 10%;
+    left: calc(50% - 12.5rem);
+    width: 25rem;
+  }
+  51% {
+    left: 2%;
+    top: 4%;
+  }
+
+  52% {
+    opacity: 0;
+    width: 5rem;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
 .logo:hover {
   opacity: 100%;
+}
+
+.logoExpand {
+  left: 1.5%;
+  top: 3%;
+  padding: 0;
+  width: 5rem;
+  position: fixed;
+  animation: logoMove 1s;
 }

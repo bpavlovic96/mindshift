@@ -26,8 +26,12 @@ function Tracklist({ tracks, videoItems, enabled }: TracklistProps) {
   return (
     <div className={styles.trackList}>
       {enabled &&
-        tracks.map((track) => (
-          <Tracks link={track.track} videoItems={videoItems?.items} />
+        tracks.map((track, index) => (
+          <Tracks
+            link={track.track}
+            videoItems={videoItems?.items}
+            key={index}
+          />
         ))}
     </div>
   );
