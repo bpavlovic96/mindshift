@@ -7,7 +7,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   z-index: 1;
   width: 100%;
   min-height: 10vh;
@@ -22,6 +22,7 @@
   filter: invert(100%);
   animation: opacityAnim 1.5s ease-in;
   opacity: 80%;
+  transition: opacity 0.5s ease-in-out;
 }
 
 @keyframes opacityAnim {
@@ -75,10 +76,74 @@
 }
 
 .logoExpand {
-  left: 1.5%;
-  top: 3%;
+  left: 1.75%;
+  top: 3.5%;
   padding: 0;
   width: 5rem;
-  position: fixed;
+  position: absolute;
   animation: logoMove 1s;
+}
+
+.navLinkWrapper {
+  margin-left: 7rem;
+}
+
+.navLink {
+  text-decoration: none;
+  width: 13.5rem;
+  height: 5rem;
+  border: 1px solid #333;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 0.5s;
+}
+
+.navLink::before,
+.navLink::after {
+  position: absolute;
+  background: #000;
+  z-index: -1;
+  transition: 0.5s;
+  content: "";
+}
+
+.navLink::before {
+  width: 10rem;
+  height: 5rem;
+}
+
+.navLink::after {
+  width: 13.5rem;
+  height: 5rem;
+}
+
+.navLink:hover::before {
+  width: 0;
+  background: #000;
+}
+
+.navLink:hover::after {
+  height: 0;
+  background: #000;
+}
+
+.navLink:hover {
+  background: #000;
+}
+
+.navText {
+  font-size: 1.5vw;
+  color: #fff;
+  opacity: 70%;
+  transition: opacity 0.5s ease-in-out;
+  user-select: none;
+}
+
+.navLink:hover .navText {
+  opacity: 100%;
 }

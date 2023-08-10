@@ -1,9 +1,9 @@
 import styles from "./Hero.module.css";
 import { descriptionList, header, descriptionSection } from "../../description";
-import { useSharedContext } from "../../shared/ContextProvider";
+import useSharedContext from "../../shared/SharedContext";
 
 function Hero() {
-  const { buttonClicked, onButtonClick } = useSharedContext();
+  const { onButtonClick, buttonClicked, isExpanded } = useSharedContext();
 
   return (
     <div
@@ -83,8 +83,13 @@ function Hero() {
               ))}
         </div>
       </div>
-      <button className={styles.expandButton} onClick={onButtonClick}>
-        Expand
+      <button
+        className={styles.expandButton}
+        onClick={() => {
+          onButtonClick();
+        }}
+      >
+        {isExpanded ? "Collapse" : "Expand"}
       </button>
     </div>
   );

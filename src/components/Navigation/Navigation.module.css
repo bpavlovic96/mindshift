@@ -12,57 +12,58 @@
   gap: 2rem;
 }
 
-.catalogLink,
-.aboutLink {
+.link {
   color: #ffffff;
   text-decoration: none;
   font-size: 2vw;
-  letter-spacing: 1rem;
 }
 
 .aboutLink h2 {
   font-size: 2vw;
 }
 
-.catalogHeaderWrapper {
+.headerWrapper {
   display: flex;
   justify-content: center;
   gap: 1vw;
-  position: relative;
   text-align: center;
+  flex-direction: column;
 }
 
-.catalogHeader {
+.headerTextWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 5rem;
+  letter-spacing: 1rem;
+}
+
+.header {
+  position: absolute;
   font-size: 2vw;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 1rem;
   transition: transform 0.5s ease-in-out;
 }
 
-.catalogHeaderWrapper:hover .catalogHeader {
-  transform: translate(36%, 0);
+.headerTextWrapper:hover .header {
+  transform: translate(43%, 0);
   transition: transform 0.5s ease-in-out;
 }
 
-.catalogHeaderText {
-  display: inline;
+.headerText {
   opacity: 0;
   position: absolute;
-  top: 50%;
-  left: 52%;
-  transform: translate(-50%, -50%);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   color: rgb(101, 0, 0);
 }
 
-.catalogHeaderWrapper:hover .catalogHeaderText {
+.headerTextWrapper:hover .headerText {
   opacity: 1;
-  transform: translate(-150%, -50%);
-  left: 52%;
+  transform: translate(-70%, 0%);
 }
 
-.navListCatalog {
+.navListSub {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -71,7 +72,7 @@
   gap: 2rem;
 }
 
-.catalogSubheader {
+.subHeader {
   font-size: 1vw;
   color: #fff;
   max-width: 60%;
@@ -79,14 +80,14 @@
   text-transform: uppercase;
 }
 
-.catalogDescription {
+.description {
   font-size: 0.8vw;
   color: #fff;
   max-width: 60%;
   margin: 0 auto;
 }
 
-.navListAbout {
+.navListSub {
   display: flex;
   justify-content: center;
 }
@@ -129,4 +130,8 @@
 
 .hidden {
   opacity: 0.2;
+}
+
+.mindshiftText {
+  color: rgb(101, 0, 0);
 }

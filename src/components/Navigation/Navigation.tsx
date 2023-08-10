@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import styles from "./Navigation.module.css";
 import { genreList } from "../../genres";
 import { useEffect, useState } from "react";
-import { useSharedContext } from "../../shared/ContextProvider";
+import useSharedContext from "../../shared/SharedContext";
 
 function Navigation() {
   const [currentGenreIndex, setCurrentGenreIndex] = useState(0);
 
-  const { onLogoClick } = useSharedContext();
+  const { onLinkClick } = useSharedContext();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,22 +20,21 @@ function Navigation() {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.navList}>
-        <div className={styles.navListCatalog}>
+        <div className={styles.navListSub}>
           <li>
-            <Link to="/catalog" className={styles.catalogLink}>
-              <div
-                className={styles.catalogHeaderWrapper}
-                onClick={onLogoClick}
-              >
-                <span className={styles.catalogHeaderText}>GO TO </span>
-                <h2 className={styles.catalogHeader}>CATALOG</h2>
+            <Link to="/catalog" className={styles.link}>
+              <div className={styles.headerWrapper} onClick={onLinkClick}>
+                <div className={styles.headerTextWrapper}>
+                  <span className={styles.headerText}>GO TO </span>
+                  <h2 className={styles.header}>CATALOG</h2>
+                </div>
               </div>
             </Link>
           </li>
-          <h3 className={styles.catalogSubheader}>
+          <h3 className={styles.subHeader}>
             Explore a fusion of genres like never before.
           </h3>
-          <p className={styles.catalogDescription}>
+          <p className={styles.description}>
             Journey through celestial echoes in space-inspired harmonies, tap
             into collective experiences with archetype melodies, relive
             cinematic moments through captivating soundtracks, and rediscover
@@ -64,9 +63,25 @@ function Navigation() {
             ))}
           </div>
         </div>
-        <li className={styles.navListAbout}>
-          <Link to="/about" className={styles.aboutLink}>
-            <h2>ABOUT</h2>
+        <li className={styles.navListSub}>
+          <Link to="/about" className={styles.link}>
+            <div className={styles.headerWrapper}>
+              <div className={styles.headerTextWrapper}>
+                <span className={styles.headerText}>GO TO </span>
+                <h2 className={styles.header}>ABOUT</h2>
+              </div>
+              <h3 className={styles.subHeader}>
+                UNCOVER THE WHO & WHAT BEHIND
+                <span className={styles.mindshiftText}> MINDSHIFT</span>.
+              </h3>
+              <p className={styles.description}>
+                Eager to unravel the creative minds and underlying inspirations
+                steering our diverse musical selection? <br />
+                Meet the visionaries behind the melodies and gain insight into
+                our mission, explore the beating heart of our platform and get
+                ready to dive deeper into the rhythms that resonate with you.
+              </p>
+            </div>
           </Link>
         </li>
       </ul>

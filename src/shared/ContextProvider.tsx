@@ -1,49 +1,63 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  ReactNode,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 type Context = {
   buttonClicked: boolean;
-  setButtonClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setButtonClicked: Dispatch<SetStateAction<boolean>>;
+  isExpanded: boolean;
+  setIsExpanded: Dispatch<SetStateAction<boolean>>;
   onButtonClick: () => void;
+  onLinkClick: () => void;
   onLogoClick: () => void;
 };
+
+export const SharedContext = createContext<Context | undefined>(undefined);
 
 type SharedContextProviderProps = {
   children: ReactNode;
 };
 
-const SharedContext = createContext<Context | undefined>(undefined);
+const useButtonState = () => {
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const onButtonClick = () => {
+    setButtonClicked((prevButtonClicked) => !prevButtonClicked);
+    setIsExpanded((prevIsExpanded) => !prevIsExpanded);
+  };
+
+  const onLinkClick = () => {
+    setButtonClicked(true);
+  };
+
+  const onLogoClick = () => {
+    isExpanded ? setButtonClicked(true) : setButtonClicked(false);
+  };
+
+  return {
+    buttonClicked,
+    setButtonClicked,
+    onButtonClick,
+    onLinkClick,
+    onLogoClick,
+    isExpanded,
+    setIsExpanded,
+  };
+};
 
 export const SharedContextProvider: React.FC<SharedContextProviderProps> = ({
   children,
 }) => {
-  const [buttonClicked, setButtonClicked] = useState(false);
-
-  const onButtonClick = () => {
-    setButtonClicked(!buttonClicked);
-  };
-
-  const onLogoClick = () => {
-    setButtonClicked(true);
-  };
-
-  const contextValue: Context = {
-    buttonClicked,
-    setButtonClicked,
-    onButtonClick,
-    onLogoClick,
-  };
+  const contextValue = useButtonState();
 
   return (
     <SharedContext.Provider value={contextValue}>
       {children}
     </SharedContext.Provider>
   );
-};
-
-export const useSharedContext = (): Context => {
-  const context = useContext(SharedContext);
-  if (!context) {
-    throw new Error("Used once in ContextProvider");
-  }
-  return context;
 };
