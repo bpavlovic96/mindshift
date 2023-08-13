@@ -1,9 +1,7 @@
 .trackList {
   overflow-y: auto;
-  border-top: 1px #444444 solid;
-  border-left: 1px #444444 solid;
-  border-right: 1px #444444 solid;
   margin-right: 1rem;
+  border: 1px #444444 solid;
 }
 
 .trackList::-webkit-scrollbar,

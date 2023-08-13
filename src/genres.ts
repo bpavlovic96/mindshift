@@ -51,7 +51,7 @@ export const genreList = [
         track: "KsqeTdS_eK4",
       },
     ],
-    background: "./public/cover.mp4",
+    background: "./public/soundtrack.mp4",
     key: 3,
   },
   {

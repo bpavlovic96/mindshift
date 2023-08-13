@@ -11,9 +11,12 @@ type Context = {
   setButtonClicked: Dispatch<SetStateAction<boolean>>;
   isExpanded: boolean;
   setIsExpanded: Dispatch<SetStateAction<boolean>>;
+  showAbout: string;
+  setShowAbout: Dispatch<SetStateAction<string>>;
   onButtonClick: () => void;
   onLinkClick: () => void;
   onLogoClick: () => void;
+  aboutPageRender: (to: string) => void;
 };
 
 export const SharedContext = createContext<Context | undefined>(undefined);
@@ -25,6 +28,7 @@ type SharedContextProviderProps = {
 const useButtonState = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showAbout, setShowAbout] = useState("");
 
   const onButtonClick = () => {
     setButtonClicked((prevButtonClicked) => !prevButtonClicked);
@@ -39,6 +43,10 @@ const useButtonState = () => {
     isExpanded ? setButtonClicked(true) : setButtonClicked(false);
   };
 
+  const aboutPageRender = (to: string) => {
+    setShowAbout(to);
+  };
+
   return {
     buttonClicked,
     setButtonClicked,
@@ -47,6 +55,9 @@ const useButtonState = () => {
     onLogoClick,
     isExpanded,
     setIsExpanded,
+    showAbout,
+    setShowAbout,
+    aboutPageRender,
   };
 };
 

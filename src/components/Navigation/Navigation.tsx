@@ -7,7 +7,7 @@ import useSharedContext from "../../shared/SharedContext";
 function Navigation() {
   const [currentGenreIndex, setCurrentGenreIndex] = useState(0);
 
-  const { onLinkClick } = useSharedContext();
+  const { onLinkClick, aboutPageRender } = useSharedContext();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,7 +22,11 @@ function Navigation() {
       <ul className={styles.navList}>
         <div className={styles.navListSub}>
           <li>
-            <Link to="/catalog" className={styles.link}>
+            <Link
+              to="/catalog"
+              className={styles.link}
+              onClick={() => aboutPageRender("catalog")}
+            >
               <div className={styles.headerWrapper} onClick={onLinkClick}>
                 <div className={styles.headerTextWrapper}>
                   <span className={styles.headerText}>GO TO </span>
@@ -64,25 +68,29 @@ function Navigation() {
           </div>
         </div>
         <li className={styles.navListSub}>
-          <Link to="/about" className={styles.link}>
-            <div className={styles.headerWrapper}>
-              <div className={styles.headerTextWrapper}>
-                <span className={styles.headerText}>GO TO </span>
-                <h2 className={styles.header}>ABOUT</h2>
-              </div>
-              <h3 className={styles.subHeader}>
-                UNCOVER THE WHO & WHAT BEHIND
-                <span className={styles.mindshiftText}> MINDSHIFT</span>.
-              </h3>
-              <p className={styles.description}>
-                Eager to unravel the creative minds and underlying inspirations
-                steering our diverse musical selection? <br />
-                Meet the visionaries behind the melodies and gain insight into
-                our mission, explore the beating heart of our platform and get
-                ready to dive deeper into the rhythms that resonate with you.
-              </p>
+          <Link
+            to="/about"
+            className={styles.link}
+            onClick={() => aboutPageRender("about")}
+          >
+            <div className={styles.headerTextWrapper} onClick={onLinkClick}>
+              <span className={styles.headerText}>GO TO </span>
+              <h2 className={styles.header}>ABOUT</h2>
             </div>
           </Link>
+          <div className={styles.headerWrapper}>
+            <h3 className={styles.subHeader}>
+              UNCOVER THE WHO & WHAT BEHIND
+              <span className={styles.mindshiftText}> MINDSHIFT</span>.
+            </h3>
+            <p className={styles.description}>
+              Eager to unravel the creative minds and underlying inspirations
+              steering our diverse musical selection? <br />
+              Meet the visionaries behind the melodies and gain insight into our
+              mission, explore the beating heart of our platform and get ready
+              to dive deeper into the rhythms that resonate with you.
+            </p>
+          </div>
         </li>
       </ul>
     </div>

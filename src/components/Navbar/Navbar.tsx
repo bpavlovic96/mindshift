@@ -1,20 +1,42 @@
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import useSharedContext from "../../shared/SharedContext";
-import { useEffect, useState } from "react";
 
 function Navbar() {
-  const { buttonClicked, onLogoClick } = useSharedContext();
+  const { buttonClicked, onLogoClick, showAbout, aboutPageRender } =
+    useSharedContext();
 
-  const [currentUrl, setCurrentUrl] = useState("");
-
-  useEffect(() => {
-    setCurrentUrl(window.location.href);
-  }, []); // tu riješiti dependency
+  const navPageLinkRender = () => {
+    if (showAbout === "catalog") {
+      return (
+        <div className={styles.navLinkWrapper}>
+          <Link
+            to="/about"
+            className={styles.navLink}
+            onClick={() => aboutPageRender("about")}
+          >
+            <h2 className={styles.navText}>ABOUT</h2>
+          </Link>
+        </div>
+      );
+    } else if (showAbout === "about") {
+      return (
+        <div className={styles.navLinkWrapper}>
+          <Link
+            to="/catalog"
+            className={styles.navLink}
+            onClick={() => aboutPageRender("catalog")}
+          >
+            <h2 className={styles.navText}>CATALOG</h2>
+          </Link>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className={styles.navbar}>
-      <Link to="/">
+      <Link to="/" onClick={() => aboutPageRender("")}>
         <img
           src="../../public/logo.png"
           alt="logo"
@@ -27,13 +49,7 @@ function Navbar() {
         />
       </Link>
 
-      {currentUrl.includes("catalog") ? (
-        <div className={styles.navLinkWrapper}>
-          <Link to="/about" className={styles.navLink}>
-            <h2 className={styles.navText}>ABOUT</h2>
-          </Link>
-        </div>
-      ) : null}
+      {navPageLinkRender()}
     </div>
   );
 }

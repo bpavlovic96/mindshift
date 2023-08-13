@@ -1,5 +1,11 @@
+import AboutInformation from "../components/AboutInformation/AboutInformation";
+
 function About() {
-  return <div></div>;
+  return (
+    <div>
+      <AboutInformation />
+    </div>
+  );
 }
 
 export default About;
